@@ -1,0 +1,47 @@
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 50%;
+  height: 50%;
+  place-items: center;
+  gap: 3%;
+
+  .cell{
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    border:2px solid #505050;
+    font-size: 3rem;
+  }
+}
+
+.game-info{
+  display: flex;
+  gap:12px;
+
+  .turn-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    
+    p{
+      width: 100%;
+      font-size: 3rem;
+    }
+  }
+  
+  .selected{
+    background: #505050
+  }
+}
+
+.game-winner{
+  display: flex;
+  flex-direction: column;
+  gap:12px
+}
