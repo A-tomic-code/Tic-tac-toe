@@ -2,10 +2,10 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  width: 50%;
   height: 50%;
   place-items: center;
   gap: 3%;
+  aspect-ratio: 1/1;
 
   .cell{
     display: grid;
