@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { GameBoard } from './components/GameBoard'
 
 function App() {
