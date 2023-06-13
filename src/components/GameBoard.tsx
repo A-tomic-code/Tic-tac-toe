@@ -22,10 +22,10 @@ export const GameBoard = () => {
 
         <div className="game-info">
           <div className={`turn-info ${gameState.currentPlayer === TURNS.X && 'selected'}`}>
-            <p>X</p>
+            <p>{TURNS.X}</p>
           </div>
           <div className={`turn-info ${gameState.currentPlayer === TURNS.O && 'selected'}`}>
-            <p>Y</p>
+            <p>{TURNS.O}</p>
           </div>
         </div>
       {gameState.winner && (

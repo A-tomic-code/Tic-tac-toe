@@ -25,21 +25,25 @@ export const useTicTacToe = () => {
     
     setGameState((prevStatus: GameState) => {
       const newBoard: BoardCell[] = [...prevStatus.board]
+
       let newTurn = prevStatus.currentPlayer      
       
-      if(!prevStatus.board[cellIndex] && !prevStatus.winner){
-        newBoard[cellIndex] = prevStatus.currentPlayer
-        newTurn = prevStatus.currentPlayer === TURNS.X 
+      if(!prevStatus.board[cellIndex] && !prevStatus.winner){   //si la celda esta vacia y no hay ganador
+        newBoard[cellIndex] = prevStatus.currentPlayer          //doy valor a la celda
+        newTurn = prevStatus.currentPlayer === TURNS.X          //y cambio el turno 
         ? TURNS.O 
         : TURNS.X
       }
 
+      const winner = checkWinner(newBoard)
+      const isFullBoard = newBoard.every(cell => cell !== null)
+      
       const newStatus: GameState = {
-        ...prevStatus,
-        board: newBoard,
-        currentPlayer: newTurn,
-        winner: checkWinner(newBoard)
-      }
+          ...prevStatus,
+          board: newBoard,
+          currentPlayer: newTurn,
+          winner: (!winner && isFullBoard) ? 'empate' : winner
+        }     
       
       return newStatus
     })
@@ -59,7 +63,6 @@ export const useTicTacToe = () => {
         return board[a]
        }
     }
-
     return null
   }
 
